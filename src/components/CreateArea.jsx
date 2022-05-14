@@ -6,6 +6,8 @@ function CreateArea(props) {
     content: "",
   });
 
+  const [init, setInit] = useState(false);
+
   function handleChange(event) {
     const { name, value } = event.target;
 
@@ -26,23 +28,30 @@ function CreateArea(props) {
     });
   }
 
+  function expandEffect() {
+    setInit(true);
+  }
+
   return (
-    <div>
+    <div onClick={expandEffect}>
       <form>
-        <input
-          name="title"
-          placeholder="Title"
-          onChange={handleChange}
-          value={note.title}
-        />
+        {init ? (
+          <input
+            name="title"
+            placeholder="Title"
+            onChange={handleChange}
+            value={note.title}
+          />
+        ) : null}
+
         <textarea
           name="content"
           placeholder="Take a note..."
-          rows="3"
+          rows={init ? "3" : "1"}
           onChange={handleChange}
           value={note.content}
         />
-        <button onClick={submitNote}>Add</button>
+        {init ? <button onClick={submitNote}>+</button> : null}
       </form>
     </div>
   );
