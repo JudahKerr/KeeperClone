@@ -64,12 +64,15 @@ footer p {
   float: right;
   margin-right: 10px;
   color: #f5ba13;
-  background-color: #fff;
+  background-color: transparent;
   border: none;
   width: 36px;
   height: 36px;
   cursor: pointer;
   outline: none;
+  font-weight: bold;
+  
+  
   
 }
 
@@ -106,4 +109,39 @@ form button {
   cursor: pointer;
   outline: none;
   font-size: 1.5em;
+}
+
+#deleteCheck {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 3;
+  border: black 2px solid;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  width: 250px;
+  position: relative;
+  padding: 10px;
+  left: -250px;
+
+  
+  background-color: #fff;
+}
+
+
+
+#deleteCheck button {
+  
+  /* float: right; */
+  margin-right: 10px;
+  color: #f5ba13;
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  
 }
