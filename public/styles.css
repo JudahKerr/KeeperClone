@@ -5,19 +5,22 @@
 }
 
 ::placeholder {
-  opacity: 0.4;
+  opacity: 1;
+  font-weight: 600;
 }
+
+
 html {
   font-family: "Montserrat", sans-serif;
 }
 body {
   background: #eee;
-  padding: 0 16px;
+  padding: 0 0px;
 }
 
 header {
   background-color: #f5ba13;
-  margin: auto -16px;
+  margin: 0px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -71,9 +74,6 @@ footer p {
   cursor: pointer;
   outline: none;
   font-weight: bold;
-  
-  
-  
 }
 
 form {
@@ -95,6 +95,7 @@ form textarea {
   font-family: inherit;
   resize: none;
 }
+
 form button {
   position: absolute;
   right: 18px;
@@ -109,32 +110,33 @@ form button {
   cursor: pointer;
   outline: none;
   font-size: 1.5em;
+  caret-color: transparent;
 }
 
 #deleteCheck {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
   z-index: 3;
   border: black 2px solid;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
-  width: 250px;
-  position: relative;
-  padding: 10px;
-  left: -250px;
-
-  
+  width: 300px;
+  position: absolute;
+  padding: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background-color: #fff;
 }
 
-
-
 #deleteCheck button {
-  
   /* float: right; */
-  margin-right: 10px;
+  margin: 10px auto;
   color: #f5ba13;
   background-color: transparent;
   border: none;
@@ -143,5 +145,32 @@ form button {
   cursor: pointer;
   outline: none;
   font-weight: bold;
-  
+}
+
+.color-div {
+  height: 30px;
+  width: 30px;
+
+  background-image: url(https://cdn-icons.flaticon.com/png/512/752/premium/752435.png?token=exp=1653412258~hmac=36e908f5b2f3a3245b65af9775ecdc1b);
+  background-size: cover;
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  border-radius: 25%;
+  z-index: 5;
+  cursor: pointer;
+  caret-color: transparent;
+}
+
+.colorPicker {
+  position: relative;
+  top: 20px;
+
+  caret-color: transparent;
+
+  transition: transform 100ms;
+}
+
+.colorPicker:hover {
+  transform: scale(1.2);
 }

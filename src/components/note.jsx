@@ -1,30 +1,16 @@
 import React, { useState } from "react";
-import { GithubPicker } from "react-color";
 
 function Note(props) {
-  const [color, setColor] = useState("");
-  const [showColorPicker, setShowColorPicker] = useState(false);
   const [showDeleteCheck, setShowDeleteCheck] = useState(false);
-  const [deleteCheck, setDeleteCheck] = useState(false);
 
   function deleteNote() {
     setShowDeleteCheck(!showDeleteCheck);
   }
 
-  function changeColor() {
-    setShowColorPicker(!showColorPicker);
-  }
-
-  function colorChange(event) {
-    setColor(event.hex);
-    console.log(event);
-    setShowColorPicker(!showColorPicker);
-  }
-
   function handleDeleteCheckYes() {
     props.delete(props.id);
+    props.deleteColor(props.id);
     setShowDeleteCheck(!showDeleteCheck);
-    
   }
 
   function handleDeleteCheckNo() {
@@ -33,20 +19,9 @@ function Note(props) {
 
   return (
     <div>
-      <div className="note" style={{ backgroundColor: color }}>
+      <div className="note" style={{ backgroundColor: props.color[props.id] }}>
         <h1>{props.title}</h1>
         <p>{props.content}</p>
-        <button className="colorButton" onClick={changeColor}>
-          Color
-        </button>
-        {showColorPicker && (
-          <GithubPicker
-            className="colorPicker"
-            color={color}
-            onChange={colorChange}
-          />
-        )}
-
         <button onClick={deleteNote}>Delete</button>
       </div>
       {showDeleteCheck && (
